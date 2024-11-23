@@ -25,43 +25,116 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// Gets two variables X1, X2 and return the sum of X1 + X2
+		// Setting varibales
+		int a = x1;
+		int b = x2;
+		//Add one to a for b times
+		for (int i = 0; i < b ; i++){
+			a++;
+		}
+
+		return a;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// Setting varibales
+		int a = x1;
+		int b = x2;
+
+		//Minus one to a for b times
+
+		for (int i = 0; i < b ; i++){
+			a--;
+		}
+
+		return a;
 	}
+	
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		//Get two vvariable X1, X2 and return the multiplaction of X1 * X2
+		// Setting varibales
+		int a = x1;
+		int b = x2;
+		int sum = a;
+
+		for (int i = 0; i < b - 1 ; i++){
+			sum = plus(sum, a);
+		}
+
+		return sum;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		// Setting varibales
+		int a = x;
+		int b = n;
+		int sum = a;
+
+		if (b == 0){
+			sum = 1;
+			return sum;
+		}
+
+		for (int i = 0; i < b - 1 ; i++){
+			sum = times(sum, a);
+		}
+
+		return sum;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
-	}
+
+		int a = x1;
+		int b = x2;
+		int sum = b;
+		int divider = 1;
+
+			while(sum <= a-b){
+				divider++;
+				sum = times(divider,b);
+
+
+	
+			}
+
+			return divider;
+			
+		}
+
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+
+		int a = x1;
+		int b = x2;
+		int output = 0;
+
+		output = minus(a, times(b, div(a,b)));
+
+
+		return output;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		// Replace the following statement with your code
-		return 0;
+		int a = x;
+		int num = 0;
+		int pow_check = 0;
+
+		pow_check = pow(num,2);
+
+		while (pow_check < a){
+			num ++;
+			pow_check = pow(num,2);
+		}
+		return num;
 	}	  	  
 }

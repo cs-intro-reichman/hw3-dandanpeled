@@ -6,19 +6,19 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-	    System.out.println(plus(2,3));   // 2 + 3
-	    System.out.println(minus(7,2));  // 7 - 2
-   		System.out.println(minus(2,7));  // 2 - 7
- 		System.out.println(times(3,4));  // 3 * 4
-   		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
-   		System.out.println(pow(5,3));      // 5^3
-   		System.out.println(pow(3,5));      // 3^5
-   		System.out.println(div(12,3));   // 12 / 3    
-   		System.out.println(div(5,5));    // 5 / 5  
-   		System.out.println(div(25,7));   // 25 / 7
-   		System.out.println(mod(25,7));   // 25 % 7
-   		System.out.println(mod(120,6));  // 120 % 6    
-   		System.out.println(sqrt(36));
+	    //System.out.println(plus(2,3));   // 2 + 3
+	    //System.out.println(minus(7,2));  // 7 - 2
+   		//System.out.println(minus(2,7));  // 2 - 7
+ 		//System.out.println(times(-3,-4));  // 3 * 4
+   		//System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
+   		//System.out.println(pow(5,3));      // 5^3
+   		//System.out.println(pow(3,5));      // 3^5
+   		//System.out.println(div(12,3));   // 12 / 3    
+   		//System.out.println(div(5,5));    // 5 / 5  
+   		//System.out.println(div(25,7));   // 25 / 7
+   		//System.out.println(mod(25,7));   // 25 % 7
+   		//System.out.println(mod(120,6));  // 120 % 6    
+   		//System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
 	}  
@@ -29,13 +29,22 @@ public class Algebra {
 		// Setting varibales
 		int a = x1;
 		int b = x2;
-		//Add one to a for b times
-		for (int i = 0; i < b ; i++){
-			a++;
-		}
 
+		if ( b < 0 ){
+			for (int i = 0; i > b ; i--){
+				a--;
+			}
+		}else{
+			for (int i = 0; i < b ; i++){
+				a++;
+			}
+		}
 		return a;
-	}
+
+		}
+		
+
+	
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
@@ -45,10 +54,15 @@ public class Algebra {
 
 		//Minus one to a for b times
 
-		for (int i = 0; i < b ; i++){
-			a--;
+		if ( b < 0 ){
+			for (int i = 0; i > b ; i--){
+				a++;
+			}
+		}else{
+			for (int i = 0; i < b ; i++){
+				a--;
+			}
 		}
-
 		return a;
 	}
 	
@@ -60,10 +74,29 @@ public class Algebra {
 		int a = x1;
 		int b = x2;
 		int sum = a;
-
-		for (int i = 0; i < b - 1 ; i++){
-			sum = plus(sum, a);
+		
+		if (a == 0 || b == 0){
+			sum = 0;
+		}else if (a > 0 && b > 0){
+			for (int i = 1; i < b; i++){
+				sum = plus(sum,a);
+			}
+		}else if( a < 0 && b > 0 ){
+			for (int i = 1; i < b; i++){
+				sum = plus(sum,a);
+			}
+		}else if( a > 0 && b < 0){
+			sum = b;
+			for (int i = 1; i < a; i++){
+				sum = plus(sum,b);
+			}
+		}else{
+			for (int i = -1; i > b; i--){
+				sum = plus(sum,a);
+			}
+			sum = -sum;
 		}
+			
 
 		return sum;
 	}
@@ -95,15 +128,36 @@ public class Algebra {
 		int b = x2;
 		int sum = b;
 		int divider = 1;
-
+		if (a == 0) {
+			divider = 0;
+		}
+		else if(a < 0 && b < 0){
+			a = times(a, -1);
+			b = times(b, -1);
 			while(sum <= a-b){
 				divider++;
 				sum = times(divider,b);
-
-
-	
 			}
-
+		}else if(a < 0 && b > 0){
+			a = times (a, -1);
+			while(sum <= a-b){
+				divider++;
+				sum = times(divider,b);
+			}
+			divider = times(divider, -1);
+		}else if( a > 0 && b < 0){
+			b = times (b, -1);
+			while(sum <= a-b){
+				divider++;
+				sum = times(divider,b);
+			}
+			divider = times(divider, -1);
+		}else{
+			while(sum <= a-b){
+				divider++;
+				sum = times(divider,b);
+			}
+		}
 			return divider;
 			
 		}
@@ -134,6 +188,9 @@ public class Algebra {
 		while (pow_check < a){
 			num ++;
 			pow_check = pow(num,2);
+		}
+		if (pow_check != a){
+			num = minus(num, 1);
 		}
 		return num;
 	}	  	  

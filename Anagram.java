@@ -41,17 +41,18 @@ public class Anagram {
 
 				}
 			}
-		}
-
-		if (secondary_str == ""){
-			return true;
-		}else{
-			return false;
 
 		}
 
+		for (int a = 0; a < secondary_str.length(); a++){
+			if (secondary_str.charAt(a) != ' '){
+				return false;
+			}
+		}
+		return true;
 
-	}
+		}
+
 
 	
 	   
@@ -69,6 +70,8 @@ public class Anagram {
 			if (Character.isLetter(test_char)) {
 				test_char = Character.toLowerCase(test_char);
 				preProccessedString += test_char;
+			}else if(test_char == ' '){
+				preProccessedString += test_char;
 			}
 			
 		}
@@ -81,7 +84,7 @@ public class Anagram {
 	public static String randomAnagram(String str) {
 		String play_str = str;
 		String new_anagram = "";
-		
+
 		while (play_str != ""){
 			int rand_num = (int)(Math.random()*(play_str.length()));
 			new_anagram = new_anagram + play_str.charAt(rand_num);

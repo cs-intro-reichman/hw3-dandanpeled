@@ -52,9 +52,6 @@ public class Anagram {
 		return true;
 
 		}
-
-
-	
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
@@ -86,7 +83,7 @@ public class Anagram {
 		String new_anagram = "";
 
 		while (play_str != ""){
-			int rand_num = (int)(Math.random()*(play_str.length()));
+			int rand_num = (int)(Math.random()*(play_str.length()-1));
 			new_anagram = new_anagram + play_str.charAt(rand_num);
 			play_str = play_str.replaceFirst(Character.toString(play_str.charAt(rand_num)), "");
 

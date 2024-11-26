@@ -83,12 +83,12 @@ public class Anagram {
 		String new_anagram = "";
 
 		while (play_str != ""){
-			int rand_num = (int)(Math.random()*(play_str.length()-1));
-			new_anagram = new_anagram + play_str.charAt(rand_num);
-			play_str = play_str.replaceFirst(Character.toString(play_str.charAt(rand_num)), "");
+			int rand_num = (int)(Math.random()*(play_str.length()));
+			if (rand_num < play_str.length())
+				new_anagram = new_anagram + play_str.charAt(rand_num);
+				play_str = play_str.replaceFirst(Character.toString(play_str.charAt(rand_num)), "");
 
 		}
-
 
 	return new_anagram;
 	}

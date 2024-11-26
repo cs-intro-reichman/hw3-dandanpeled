@@ -9,7 +9,7 @@ public class TestAlgebra {
     public static void main(String[] args) {
         testPlus();
         testMinus();
-        testTimes();
+        testTimes(); 
         testPow();
         testDiv();
         testMod();

@@ -94,6 +94,9 @@ public class Anagram {
 
 			System.out.println("new ang: " + new_anagram);
 			System.out.println("Str Leftover: " + play_str + "8");
+			if (play_str == ""){
+				break;
+			}
 		}
 
 	return new_anagram;

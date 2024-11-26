@@ -79,21 +79,21 @@ public class Anagram {
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		System.out.println("Start of Rand test");
-		System.out.println("string is:" + str);
+		//System.out.println("Start of Rand test");
+		//System.out.println("string is:" + str);
 		String play_str = str;
 		String new_anagram = "";
 
 		while (play_str.length() > 0){
 			int rand_num = (int)(Math.random()*(play_str.length()));
-			System.out.println("Position rand: " + rand_num);
+			//System.out.println("Position rand: " + rand_num);
 			if (rand_num < play_str.length())
 				new_anagram = new_anagram + play_str.charAt(rand_num);
 				play_str = play_str.replaceFirst(Character.toString(play_str.charAt(rand_num)), "");
 				//play_str = play_str.substring(0,rand_num) + play_str.substring(rand_num + 1);
 
-			System.out.println("new ang: " + new_anagram);
-			System.out.println("Str Leftover: " + play_str + "8");
+			//System.out.println("new ang: " + new_anagram);
+			//System.out.println("Str Leftover: " + play_str + "8");
 			if (play_str == ""){
 				break;
 			}

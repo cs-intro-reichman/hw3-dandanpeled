@@ -93,7 +93,7 @@ public class Anagram {
 				//play_str = play_str.substring(0,rand_num) + play_str.substring(rand_num + 1);
 
 			System.out.println("new ang: " + new_anagram);
-			System.out.println("Str Leftover: " + play_str);
+			System.out.println("Str Leftover: " + play_str + "8");
 		}
 
 	return new_anagram;

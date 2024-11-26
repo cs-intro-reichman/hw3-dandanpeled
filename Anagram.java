@@ -86,14 +86,14 @@ public class Anagram {
 
 		while (play_str != ""){
 			int rand_num = (int)(Math.random()*(play_str.length()));
-			//System.out.println("Position rand: " + rand_num);
+			System.out.println("Position rand: " + rand_num);
 			if (rand_num < play_str.length())
 				new_anagram = new_anagram + play_str.charAt(rand_num);
 				play_str = play_str.replaceFirst(Character.toString(play_str.charAt(rand_num)), "");
 				//play_str = play_str.substring(0,rand_num) + play_str.substring(rand_num + 1);
 
-			//System.out.println("new ang: " + new_anagram);
-			//System.out.println("Str Leftover: " + play_str);
+			System.out.println("new ang: " + new_anagram);
+			System.out.println("Str Leftover: " + play_str);
 		}
 
 	return new_anagram;

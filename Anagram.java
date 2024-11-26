@@ -84,7 +84,7 @@ public class Anagram {
 		String play_str = str;
 		String new_anagram = "";
 
-		while (play_str != ""){
+		while (play_str.length() > 0){
 			int rand_num = (int)(Math.random()*(play_str.length()));
 			System.out.println("Position rand: " + rand_num);
 			if (rand_num < play_str.length())
